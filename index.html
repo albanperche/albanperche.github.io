@@ -31,17 +31,6 @@
     }
 
     /* ── Subtle grid background ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(79, 142, 247, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 142, 247, 0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      z-index: 0;
-    }
 
     /* ── Navbar ── */
     nav {
@@ -442,6 +431,7 @@
     <div class="nav-links">
       <a href="index.html" class="active">🏠 Accueil</a>
       <a href="projets.html">🗂️ Mes projets</a>
+      <a href="cv.html">📄 CV</a>
     </div>
   </nav>
 
@@ -463,36 +453,25 @@
         <div class="about-text anim anim-5">
           <h2>👋 À propos de <span>moi</span></h2>
           <p>
-            Je m'appelle Alban Perche, j'ai 19 ans et je suis actuellement en 1ère année. Après avoir obtenu un bac général avec spécialités NSI et LLCE,
-            la science des données m'a intrigué et j'ai décidé de m'inscrire dans cette formation. Grâce à cette formation, pendant ma 1ère année, 
-            j'ai développé des compétences solides en programmation, en statistiques, en visualisation et même en communication.
+            Après avoir obtenu un bac général avec spécialités NSI et LLCE, la science des données m'a intrigué et j'ai décidé de m'inscrire dans cette formation. 
+            Grâce à cette formation, pendant ma 1ère année, j'ai développé des compétences solides en programmation, en statistiques, en visualisation et même 
+            en communication.
           </p>
           <p>
-            Discret et sérieux, j'aime transformer des données brutes en les nettoyant et en les rendant lisible par tout le monde.
-            Je m'intéresse particulièrement au machine learning, à la data visualisation et à l'automatisation de pipelines analytiques. 📊
-          </p>
-          <p>
-            En dehors des études, j'explore des projets personnels autour de l'open data et de la dataviz créative. 🚀
+            Discret et sérieux, j'aime transformer des données brutes en données claires et lisibles par tout le monde.
+            Je m'intéresse particulièrement à la datavisualisation et à la gestion de base de données. 📊
           </p>
         </div>
 
         <!-- Photo frame -->
-        <div class="photo-frame anim anim-6" onclick="document.getElementById('photoInput').click()" title="Cliquez pour importer votre photo">
+        <div class="photo-frame anim anim-6">
           <div class="corner tl"></div>
           <div class="corner tr"></div>
           <div class="corner bl"></div>
           <div class="corner br"></div>
-          <img id="photoPreview" src="" alt="Ma photo"/>
-          <div class="photo-placeholder" id="photoPlaceholder">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              <path d="M16 3l2 2-6 6"/>
-            </svg>
-            <span>📷 Importer ma photo</span>
-          </div>
+          <!-- ⚠️  Pour ajouter ta photo : remplace "ta-photo.jpg" par le nom de ton fichier image -->
+          <img src="photo.jpg" alt="Ma photo" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
         </div>
-        <input type="file" id="photoInput" accept="image/*"/>
       </div>
     </section>
 
@@ -506,50 +485,35 @@
           <div class="skill-icon">🐍</div>
           <div class="skill-name">Python</div>
           <div class="skill-tag">Analyse · ML</div>
-          <div class="skill-dots">
-            <div class="dot filled"></div><div class="dot filled"></div>
-            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-          </div>
+          <div class="skill-dots"><div class="dot filled"></div></div>
         </div>
 
         <div class="skill-card anim anim-4">
           <div class="skill-icon">🗄️</div>
           <div class="skill-name">SQL</div>
           <div class="skill-tag">BDD · Requêtes</div>
-          <div class="skill-dots">
-            <div class="dot filled"></div><div class="dot filled"></div>
-            <div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
-          </div>
+          <div class="skill-dots"><div class="dot filled"></div></div>
         </div>
 
         <div class="skill-card anim anim-5">
           <div class="skill-icon">📊</div>
           <div class="skill-name">VBA</div>
           <div class="skill-tag">Automatisation</div>
-          <div class="skill-dots">
-            <div class="dot filled"></div><div class="dot filled"></div>
-            <div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
-          </div>
+          <div class="skill-dots"><div class="dot filled"></div></div>
         </div>
 
         <div class="skill-card anim anim-6">
           <div class="skill-icon">📈</div>
           <div class="skill-name">R</div>
           <div class="skill-tag">Statistiques</div>
-          <div class="skill-dots">
-            <div class="dot filled"></div><div class="dot filled"></div>
-            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-          </div>
+          <div class="skill-dots"><div class="dot filled"></div></div>
         </div>
 
         <div class="skill-card anim anim-1">
           <div class="skill-icon">🔬</div>
           <div class="skill-name">SAS</div>
           <div class="skill-tag">Analyse · Data</div>
-          <div class="skill-dots">
-            <div class="dot filled"></div><div class="dot filled"></div>
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          </div>
+          <div class="skill-dots"><div class="dot filled"></div></div>
         </div>
       </div>
     </section>
@@ -562,24 +526,8 @@
   </div>
 
   <script>
-    // Photo import
-    const input    = document.getElementById('photoInput');
-    const preview  = document.getElementById('photoPreview');
-    const placeholder = document.getElementById('photoPlaceholder');
 
-    input.addEventListener('change', e => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = ev => {
-        preview.src = ev.target.result;
-        preview.classList.add('loaded');
-        placeholder.style.display = 'none';
-      };
-      reader.readAsDataURL(file);
-    });
-
-    // Scroll-triggered fade-in for skills section
+        // Scroll-triggered fade-in for skills section
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
