@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact – Portfolio</title>
+  <title>Bilan – Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -77,12 +77,12 @@
     /* PAGE */
     .page { position: relative; z-index: 1; padding-top: var(--nav-h); }
 
-    /* HERO TITLE */
+    /* HERO */
     .hero-title-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 72px 48px 40px;
+      padding: 72px 48px 56px;
       position: relative;
     }
     .hero-eyebrow {
@@ -106,12 +106,11 @@
       letter-spacing: -.02em;
     }
     .hero-subtitle {
-      margin-top: 24px;
-      font-size: .95rem;
+      margin-top: 20px;
+      font-size: 1rem;
       color: var(--muted);
-      text-align: center;
-      max-width: 520px;
-      line-height: 1.65;
+      letter-spacing: .06em;
+      text-transform: uppercase;
       font-weight: 300;
     }
     .hero-glow {
@@ -126,102 +125,86 @@
       width: 80px; height: 2px;
       background: linear-gradient(90deg, var(--blue), var(--violet));
       border-radius: 2px;
-      margin: 56px auto 48px;
+      margin: 0 auto 64px;
     }
 
-    /* CONTACT SECTION */
-    .contact-section {
-      max-width: 700px;
+    /* BILAN CARDS */
+    .bilan-section {
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 48px 100px;
-    }
-    .contact-section h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 32px;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* CONTACT CARDS */
-    .contact-cards {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 32px;
     }
-    .contact-card {
+
+    .bilan-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      text-decoration: none;
-      transition: border-color .3s, box-shadow .3s, transform .3s;
-      opacity: 0;
-      transform: translateY(20px);
+      border-radius: 20px;
+      padding: 40px 44px;
       position: relative;
       overflow: hidden;
-    }
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0% 50%, rgba(155,92,255,.06) 0%, transparent 60%);
       opacity: 0;
-      transition: opacity .35s;
+      transform: translateY(24px);
+      transition: border-color .3s, box-shadow .3s;
     }
-    .contact-card:hover {
-      border-color: rgba(155,92,255,.5);
-      box-shadow: 0 12px 40px rgba(155,92,255,.12);
-      transform: translateY(-4px);
-    }
-    .contact-card:hover::before { opacity: 1; }
-    .contact-card.visible {
+    .bilan-card.visible {
       opacity: 1;
       transform: translateY(0);
       transition: opacity .6s ease, transform .6s ease, border-color .3s, box-shadow .3s;
     }
+    .bilan-card:hover {
+      border-color: rgba(155,92,255,.45);
+      box-shadow: 0 16px 60px rgba(155,92,255,.10);
+    }
+    .bilan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--blue), var(--violet));
+      border-radius: 4px 0 0 4px;
+    }
 
-    .contact-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
+    .bilan-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .bilan-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       background: linear-gradient(135deg, rgba(79,142,247,.15), rgba(155,92,255,.15));
       border: 1px solid var(--border);
       flex-shrink: 0;
     }
-    .contact-info { flex: 1; }
-    .contact-label {
-      font-size: .75rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-    .contact-value {
+    .bilan-card-title {
       font-family: 'Syne', sans-serif;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--white);
     }
-    .contact-arrow {
-      font-size: 1.2rem;
-      color: var(--violet);
-      opacity: .5;
-      transition: opacity .2s, transform .2s;
+    .bilan-card-title span {
+      background: linear-gradient(90deg, var(--blue), var(--violet2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .contact-card:hover .contact-arrow {
-      opacity: 1;
-      transform: translateX(4px);
+
+    .bilan-card p {
+      font-size: .95rem;
+      line-height: 1.85;
+      color: #a8acC4;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .bilan-card p + p {
+      margin-top: 14px;
     }
 
     /* FOOTER */
@@ -243,10 +226,11 @@
     .anim-2 { animation-delay: .25s; }
     .anim-3 { animation-delay: .4s; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       nav { padding: 0 20px; }
-      .hero-title-wrap { padding: 56px 20px 36px; }
-      .contact-section { padding: 0 16px 80px; }
+      .hero-title-wrap { padding: 56px 20px 40px; }
+      .bilan-section { padding: 0 16px 80px; }
+      .bilan-card { padding: 28px 24px; }
       footer { padding: 24px 20px; }
     }
   </style>
@@ -259,8 +243,8 @@
     <a href="index.html">🏠 Accueil</a>
     <a href="projets.html">🗂️ Mes projets</a>
     <a href="cv.html">📄 CV</a>
-    <a href="bilan.html">📝 Bilan</a>
-    <a href="contact.html" class="active">✉️ Contact</a>
+    <a href="bilan.html" class="active">📝 Bilan</a>
+    <a href="contact.html">✉️ Contact</a>
   </div>
 </nav>
 
@@ -268,60 +252,56 @@
 
   <!-- HERO -->
   <div class="hero-title-wrap">
-    <p class="hero-eyebrow anim anim-1">Disponible pour un stage ou une alternance</p>
-    <h1 class="hero-title anim anim-2">Me contacter</h1>
-    <p class="hero-subtitle anim anim-3">Voici mes coordonnées si vous souhaitez me contacter concernant un stage, une alternance ou autre chose.</p>
+    <p class="hero-eyebrow anim anim-1">✦ BUT Science des Données · 2024–2025</p>
+    <h1 class="hero-title anim anim-2">Bilan personnel</h1>
+    <p class="hero-subtitle anim anim-3">Retour sur ma 1ère année de formation</p>
     <div class="hero-glow"></div>
   </div>
-
   <div class="section-divider"></div>
 
-  <!-- CONTACT CARDS -->
-  <section class="contact-section">
-    <h2>📬 Mes coordonnées</h2>
-    <div class="contact-cards">
+  <!-- CARDS -->
+  <div class="bilan-section">
 
-      <!-- Mail -->
-      <a class="contact-card" href="mailto:votre.email@exemple.com">
-        <div class="contact-icon">📧</div>
-        <div class="contact-info">
-          <div class="contact-label">Mail professionnel</div>
-          <div class="contact-value">alban.perche31@gmail.com</div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-
-      <!-- LinkedIn -->
-      <a class="contact-card" href="https://www.linkedin.com/in/alban-perche-54b012397/" target="_blank">
-        <div class="contact-icon">💼</div>
-        <div class="contact-info">
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value">Mon profil</div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-
-      <!-- GitHub -->
-      <a class="contact-card" href="#" target="_blank">
-        <div class="contact-icon">🐙</div>
-        <div class="contact-info">
-          <div class="contact-label">GitHub</div>
-          <div class="contact-value">https://github.com/albanperche</div>
-        </div>
-        <div class="contact-arrow">→</div>
-      </a>
-
+    <!-- Carte 1 -->
+    <div class="bilan-card">
+      <div class="bilan-card-header">
+        <div class="bilan-icon">🌱</div>
+        <div class="bilan-card-title"><span>Les débuts</span></div>
+      </div>
+      <p>En arrivant dans cette formation, je ne savais pas vraiment à quoi m'attendre. Le terme "Science des Données" m'était encore inconnu. Je voulais m'orienter vers l'informatique, même avec quelques lacunes dans la spécialité NSI au lycée, mais sans savoir précisément vers quoi. C'est au salon de l'étudiant de La Rochelle que j'ai découvert cette formation — quelque chose a accroché, j'ai postulé sur Parcoursup, et j'ai été accepté.</p>
+      <p>Au départ, je m'attendais à une formation classique, comme un BUT Informatique : de la programmation, du Excel, des maths théoriques et du développement web. La réalité était bien plus riche. Mathématiques, programmation, économie, statistiques, communication, projets personnels et professionnels, anglais… tout mélangé, et bien plus encore. Ça m'a agréablement surpris.</p>
     </div>
-  </section>
+
+    <!-- Carte 2 -->
+    <div class="bilan-card">
+      <div class="bilan-card-header">
+        <div class="bilan-icon">📚</div>
+        <div class="bilan-card-title"><span>Qu'ai-je appris / acquis ?</span></div>
+      </div>
+      <p>J'ai appris tellement de choses en une seule année que je ne sais pas vraiment par où commencer. Si je devais partir de la base : j'ai compris l'importance des données dans notre monde, et à quel point elles en sont un pilier. Tout ce qui nous entoure est donnée — pas seulement virtuellement, mais aussi physiquement et même psychologiquement. Pour être exploitables, ces données doivent être nettoyées, organisées, analysées, visualisées, et rendues lisibles par tous. Il peut y avoir une interface interactive, une infographie, une carte… le chemin est long avant d'arriver à un résultat clair.</p>
+      <p>J'ai aussi rattrapé mes lacunes en Python, un langage avec lequel j'avais eu du mal au lycée. Les mathématiques théoriques — analyse, statistiques descriptives, probabilités — m'ont tout de même mis en difficulté, mais c'est un défi que j'accepte.</p>
+      <p>L'économie est une matière que j'ai vraiment appréciée : des types d'entreprises au bilan fonctionnel en passant par les différentes lois qui s'appliquent aux sociétés, j'ai appris à analyser des situations financières concrètes. La matière Projet Personnel et Professionnel m'a aidé à gagner en autonomie pour ma vie d'adulte — on apprend rarement à faire un CV, une lettre de motivation ou à se préparer pour un entretien. Et enfin, la communication m'a appris à structurer un oral, à soigner mon ton, et à comprendre la signification des couleurs et des formes dans les productions visuelles.</p>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="bilan-card">
+      <div class="bilan-card-header">
+        <div class="bilan-icon">🎯</div>
+        <div class="bilan-card-title"><span>Mon futur dans la formation</span></div>
+      </div>
+      <p>Je compte bien rester dans la formation et donner le meilleur de moi-même pour ces prochaines années. Mon objectif est de décrocher un stage à la fin de la 2ème année, puis une alternance pour la 3ème année. Cette formation m'a ouvert les yeux sur un domaine que je ne connaissais pas, et je veux aller au bout.</p>
+    </div>
+
+  </div>
 
   <footer>
-    <span>Portfolio BUT Science des Données 2025/2028</span>
+    <span>✦ Portfolio Data Science · 2024 — Fait avec 💙</span>
   </footer>
 
 </div>
 
 <script>
-  const cards = document.querySelectorAll('.contact-card');
+  const cards = document.querySelectorAll('.bilan-card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -329,7 +309,7 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   cards.forEach(card => observer.observe(card));
 </script>
 </body>
